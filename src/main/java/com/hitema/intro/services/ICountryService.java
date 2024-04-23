@@ -2,12 +2,15 @@ package com.hitema.intro.services;
 
 import com.hitema.intro.models.Country;
 import com.hitema.intro.repositories.CountryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
 public class ICountryService implements CountryService {
 
-    private CountryRepository repository;
+    final private CountryRepository repository;
 
     public ICountryService(CountryRepository repository) {
         this.repository = repository;
