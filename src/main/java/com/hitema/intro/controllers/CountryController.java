@@ -35,4 +35,14 @@ public class CountryController {
     public Country createCountry(@RequestBody Country country) {
         return this.service.create(country);
     }
+
+    @DeleteMapping("/remove/{id}")
+    public String removeCountry(@PathVariable Long id) {
+        return this.service.delete(id) ? "SUCCESS: Country deleted" : "FAIL: could not delete country.";
+    }
+
+    @PutMapping("/update")
+    public Country updateCountry(@RequestBody Country country) {
+        return this.service.update(country);
+    }
 }
