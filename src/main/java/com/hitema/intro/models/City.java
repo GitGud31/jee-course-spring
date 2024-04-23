@@ -23,7 +23,6 @@ public class City {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    @ManyToOne
     @JoinColumn(name = "country_id")
-    private Country country;
+    private Long countryId;
 }

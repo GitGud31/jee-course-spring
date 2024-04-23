@@ -7,10 +7,7 @@ import com.hitema.intro.services.CountryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,5 +31,20 @@ public class CityController {
     @GetMapping("/{id}")
     public City getOne(@PathVariable Long id) {
         return this.service.read(id);
+    }
+
+    @PostMapping("/create")
+    public City createCity(@RequestBody City city) {
+        return this.service.create(city);
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public String removeCity(@PathVariable Long id) {
+        return this.service.delete(id) ? "SUCCESS: City deleted" : "FAIL: could not delete city.";
+    }
+
+    @PutMapping("/update")
+    public City updateCity(@RequestBody City city) {
+        return this.service.update(city);
     }
 }
