@@ -1,5 +1,6 @@
 package com.hitema.intro.services;
 
+import com.hitema.intro.models.City;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,9 @@ class CityServiceTest {
 
     @Test
     void read() {
+        final Long id = 2L;
+        final City city = this.service.read(id);
+        log.trace("{}", city.getCity());
     }
 
     @Test
